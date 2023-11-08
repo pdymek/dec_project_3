@@ -15,3 +15,4 @@ The `faker` package on Kafka producer will provide data and acts as sample machi
   - Kafka -> Confluent -> Clickhouse -> Preset (set on AWS)
 - Breakdown of tasks (How is your project broken down? Who is doing what?)
   - One person project
+
