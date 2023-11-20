@@ -20,7 +20,7 @@ jobs:
                 python-version: ${{ matrix.python-version }}
             - name: Install dependencies
               run: |
-                python -m pip install pytest pytest-md pytest-emoji clickhouse_connect
+                python -m pip install pytest pytest-md pytest-emoji clickhouse_connect dotenv
             - name: Test with pytest
               run: |
                 python -m pytest tests
