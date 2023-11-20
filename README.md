@@ -133,3 +133,5 @@ Check if Clickhouse connection works and required tables exists:
 
 ![pytest](/doc/pytest.png)
 
+
+
