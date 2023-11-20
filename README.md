@@ -6,6 +6,18 @@ This project consisting implementation of ingesting stream data from fleet manag
 
 This project is done with Confluetn, Kafka, Clickhouse, Perset and Python technologies.
 
+
+Objective was to extract data to answer these questions:
+ - What is a current location of certain car?
+ - Detect pattern in fleet movement
+ - Excessive usage of cars
+ - Detect abnormal engine work
+ - Report drivers activity
+ - Other machine learning applications:
+    - Predictive maintenance
+
+This application and final reports could be used by Fleet Manager, Analysts or Fleet Maintenance Department
+
 ---
 
 | Author          | GitHub profile |
@@ -22,7 +34,7 @@ The solutions is done with help of:
 ![project-architecture](/doc/project_architecture.drawio.svg)
 
 ---
-### Data source
+### Data sources
 
 The data comes from three following datagen sources:
 - fleet_mgmt_description
@@ -100,21 +112,18 @@ Sample ksql code for create source connector:
     'output.data.format'       = 'JSON'
 );
 ```
+Three kafka topics for fleet data consumption:
+![kafka-topics](/doc/kafka_topics.png)
 
-
-
-
-
-
-
+Data consumption:
 ![data-throughtput](/doc/data_throughtput.png)
 
 
 ---
-### Transform
+### Transformation
 
-
----
+Output tables if form of precalculated report views or sql queries:
+![fleet-mgmnt-data](/doc/fleet_mgmt_data.png)
 ### Preset visualization
 
 Data ingestion in time:
@@ -124,15 +133,19 @@ Top 10 sesnsor usage by driver:
 ![top10-sensor-read-by-driver](/doc/top10_sensor_read_by_driver.png)
 
 Usage distribution on calendar:
+
 ![calendar-report](/doc//calendar_report.png)
 
-### Testing
 
-Check if Clickhouse connection works and required tables exists:
+---
+### Testing and GitHub Actions
+
+Check if Clickhouse connection works and required tables exists by running in command line:
 > pytest tests
 
 ![pytest](/doc/pytest.png)
 
 
+The tests are also invoked during pull request to main brach using GitHub Actions:
 
-
+![github-actions](/doc/github_actions.png)
