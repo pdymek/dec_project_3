@@ -23,7 +23,4 @@ jobs:
                 python -m pip install pytest pytest-md pytest-emoji clickhouse_connect
             - name: Test with pytest
               run: |
-                coverage run -m pytest tests -v -s
-            - name: Generate Coverage Report
-              run: |
-                coverage report -m
+                python -m pytest tests
