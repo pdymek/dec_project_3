@@ -1,0 +1,26 @@
+name: pytester
+
+on:
+    workflow_dispatch: {}
+
+    pull_request:
+      branches: [ main ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container:
+            image: python:3.9-bookworm
+
+        steps:
+            - name: Setup python
+              uses: actions/setup-python@v4
+              with:
+                set-safe-directory: true
+            - name: Install dependencies
+              run: pip install pytest pytest-md pytest-emoji lickhouse_connect
+            - uses: pavelzw/pytest-action@v2
+              with:
+                emoji: false
+                verbose: false
+                job-summary: true
