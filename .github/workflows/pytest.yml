@@ -13,12 +13,12 @@ jobs:
             image: python:3.9-bookworm
 
         steps:
-            - name: Setup python
-              uses: actions/setup-python@v4
-              with:
-                set-safe-directory: true
+            # - name: Setup python
+            #   uses: actions/setup-python@v4
+            #   with:
+            #     set-safe-directory: true
             - name: Install dependencies
-              run: pip install pytest pytest-md pytest-emoji lickhouse_connect
+              run: pip install pytest pytest-md pytest-emoji clickhouse_connect
             - uses: pavelzw/pytest-action@v2
               with:
                 emoji: false
